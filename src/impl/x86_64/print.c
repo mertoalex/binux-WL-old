@@ -53,7 +53,7 @@ void print_char(char character) {
         print_newline();
         return;
     }
-    if (col > num_cols - 1) {
+    if (col >= num_cols - 1) {
         buffer[col + num_cols * row] = (struct Char) {
             character: (uint8_t) '\\',
             color: color,
