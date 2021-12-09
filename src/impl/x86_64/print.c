@@ -45,7 +45,7 @@ void print_newline() {
         }
     }
 
-    clear_row(num_cols - 1);
+    clear_row(num_rows - 1);
 }
 
 void print_char(char character) {
