@@ -69,7 +69,7 @@ void print_char(char character) {
     col++;
 }
 
-/*bi an daldım lan fsdıgojsd; */
+//bi an daldım lan fsdıgojsd;
 void print_str(char* str) {
     for (size_t i = 0; 1; i++) {
         char character = (uint8_t) str[i];
