@@ -20,13 +20,13 @@ void clear_row(size_t row) {
 	};
 
 	for (size_t col = 0; col < num_cols; col++) {
-	   buffer[col + num_cols * row] = empty;
+		buffer[col + num_cols * row] = empty;
 	}
 }
 
 void print_clear() {
 	for (int i = 0; i < num_rows; i++) {
-	   clear_row(i);
+		clear_row(i);
 	}
 }
 
@@ -80,7 +80,6 @@ void print_str(char* str) {
 		//1 dk gelcem fontları değişip; ok; yaptım yay >=> (dm den atıcam görüntüyü)
 		print_char(character);
 	}
-
 }
 
 void print_set_color(uint8_t yazi, uint8_t arka) {
@@ -89,8 +88,8 @@ void print_set_color(uint8_t yazi, uint8_t arka) {
 
 void clear(int chars) {
 	for (int i = 0; i == chars; i++) {
-	   col--;
-	   print_char(' ');
-	   i = i;
+		col--;
+		print_char(' ');
+		i = i;
 	}
 }
