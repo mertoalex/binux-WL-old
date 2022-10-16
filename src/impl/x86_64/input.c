@@ -14,8 +14,7 @@ static inline uint8_t _inb(uint16_t port) {
 char* getchar(void) {
 	while (1) {
 	switch(_inb(0x60)) {
-		//sayılar
-		case 0x0b:
+		case 0x0b: //sayılar
 			print_str("0");
 			sleep(0x02000000);
 			return "0";
@@ -55,8 +54,7 @@ char* getchar(void) {
 			print_str("9");
 			sleep(0x02000000);
 			return "9";
-		//harfler
-		case 0x10:
+		case 0x10: //harfler
 			print_str("q");
 			sleep(0x02000000);
 			return "q";
@@ -160,8 +158,7 @@ char* getchar(void) {
 			print_str("m");
 			sleep(0x02000000);
 			return "m";
-		//özel karakterler fln
-		case 0x0C:
+		case 0x0C: //özel karakterler
 			print_str("-");
 			sleep(0x02000000);
 			return "-";
@@ -225,14 +222,14 @@ char* getchar(void) {
 			print_str(" ");
 			sleep(0x02000000);
 			return " ";
-		case 0x1C:
+		case 0x1C: //enter
 			print_str("\n");
 			sleep(0x02000000);
-			return "0x1C"; //for give
-		case 0x0E:
+			return "0x1C"; 
+		case 0x0E: //backspace
 			print_str("");
 			sleep(0x02000000);
-			return "0x0E"; //for delete
+			return "0x0E"; 
 		default: // If nothing matches with the cases
 			continue;
 		}
