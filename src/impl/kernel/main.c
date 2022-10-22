@@ -15,7 +15,7 @@ void kernel_main() { // prinf bruh
 	print_set_color(renk_beyaz, renk_siyah);
 	print_str("!\n");
 
-	/*if (getch() == "echo") {
+	/*if (input() == "echo") {
 		print_str("Hello, World! Yea Boiiiiiiiiii");
 	} else {
 		return;
@@ -24,7 +24,7 @@ void kernel_main() { // prinf bruh
 
 	while (1) {
 		print_str(">");
-		print_str(getch());
+		print_str(input());
 		print_str("\n");
 	}
 
