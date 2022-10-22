@@ -1,6 +1,5 @@
-#ifndef _STRING_H
-#define _STRING_H 1
-
+// source: https://gitlab.com/sortie/meaty-skeleton and https://wiki.osdev.org/Meaty_Skeleton
+#pragma once
 #include <stddef.h>
 
 #ifdef __cplusplus
@@ -15,6 +14,4 @@ size_t strlen(const char*);
 
 #ifdef __cplusplus
 }
-#endif
-
 #endif

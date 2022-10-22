@@ -1,3 +1,4 @@
+// source: https://gitlab.com/sortie/meaty-skeleton and https://wiki.osdev.org/Meaty_Skeleton
 #include "string.h"
 
 int memcmp(const void* aptr, const void* bptr, size_t size) {

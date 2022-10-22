@@ -11,7 +11,7 @@ static inline uint8_t _inb(uint16_t port) {
 	return ret;
 }
 
-char* getchar(void) {
+char* input_character(void) {
 	while (1) {
 	switch(_inb(0x60)) {
 		case 0x0b: //sayılar
@@ -236,14 +236,13 @@ char* getchar(void) {
 	}
 }
 
-char* getch() {
+char* input() { // !TODO: char* string for printing question like python
 	static int line = 0;
 	static char result[256];
 	static char* alinan;
 	memset(result,0,256);
 	while (1) {
-		
-		alinan = getchar();
+		alinan = input_character();
 
 		if (alinan == "0x1C") {
 			line = 0;
