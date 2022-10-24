@@ -17,17 +17,14 @@ start:
 	lgdt [gdt64.pointer]
 	jmp gdt64.code_segment:long_mode_start
 
-	;bir şey yapceme pls ; ok ; he bide üstekileri yoruma al yapcaksan
-	;LAN LAN ÖYLE DEĞİL subl keymap indir onla mouse 3 le başlarını tut çek şöyle; silmicektim yok ; okok
-
 	hlt
 
 check_multiboot:
-	cmp eax, 0x36d76289 ;sihirli değer diyor bruh ; tabi sihirli olm ; FDIHGIOSFHGIDSPFDS ; 
+	cmp eax, 0x36d76289 ; sihirli değer 
 	jne .no_multiboot
 	ret
 .no_multiboot:
-	mov al, 'M' ; **M** ; tabi oum
+	mov al, 'M'
 	jmp error
 
 check_cpuid:
@@ -41,12 +38,12 @@ check_cpuid:
 	pop eax
 	push ecx
 	popfd
-	cmp eax, ecx ;oum annem çağırdıda kendimi yastığıma sarılırken buldum- BRUH ; bruh ; C printleri için sabırsızlıkla bekliyorum KIFGJEO8UU ; yoo olmicak 😈😈  ; no ; yes ; olcak :( ; c++ olurda ; 
+	cmp eax, ecx 
 	je .no_cpuid
 	ret
 
 .no_cpuid:
-	mov al, 'C' ; c
+	mov al, 'C'
 	jmp error
 
 check_long_mode:
@@ -62,8 +59,8 @@ check_long_mode:
 	jmp .no_long_mode
 	ret
 
-.no_long_mode: ; al = L demi?; ne ?;  hata kodu L yani long mode değil; idk ingilizcem duyunca anlayacak kadar değil sad; ok o zmn yapıcoym
-	mov al, 'L' ;
+.no_long_mode: 
+	mov al, 'L'
 	jmp error   
 
 setup_page_tables:
@@ -77,12 +74,12 @@ setup_page_tables:
 
 	mov ecx, 0 ;sayıcı?
 .loop:
-	mov eax, 0x200000 ;2MB mış bruh
+	mov eax, 0x200000 ; 2MB
 	mul ecx
-	or eax, 0b10000011 ;şuanki, yazılabilir, KOÇA SAYFA! OFDJGIOJ
+	or eax, 0b10000011
 	mov [page_tables_l2 + ecx  * 8], eax
 
-	inc ecx ;+1 sayıcı galiba			  ;İNGİLİZCEM NE OUM IFDSHGFDIHGSGSDG ;discord bak; bakcam \ baktım
+	inc ecx ;ecx++
 	cmp ecx, 512 ; çeviri: "tüm tablonun eşlenip eşlenmediğini kontrol eder"
 	jne .loop ;eğer devam etmezse yapacak galiba
 
@@ -98,7 +95,7 @@ enable_pagings:
 	mov cr4, eax
 
 	;long mode açık
-	mov ecx, 0xC0000080 ;gine sihirli sayı bruh
+	mov ecx, 0xC0000080 ; yeniden sihirli sayı
 	rdmsr
 	or eax, 1 << 8
 	wrmsr

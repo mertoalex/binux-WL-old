@@ -1,10 +1,9 @@
 global long_mode_start
 extern kernel_main
-; he burdasın 
+
 section .text
-bits 64 ;SONUNDA ; ye xd
+bits 64
 long_mode_start:
-	;MOV ALL ;bitdi (!)
 	;tüm girilmiş data bölmünden boşlukları al (garip çevirdim)
 	mov ax, 0
 	mov ss, ax
@@ -32,4 +31,4 @@ long_mode_start:
 	;mov dword [0xb8020], 0x0f21 ;!  
 
 	call kernel_main
-	hlt ;deneme vakti ; oldumu? ; hiç bir şey değişmedide adam şey diyo "şimdi c koduna geçiyoz şimdi çalışacak c ler" \ 1 dk lan hata vermiş derlemek bende ;main.asm deki sorunu yaptım basit "," hatasıymış; öylemi yazmışım ? \ HEE , eklememişim ok TYSM \beqle; 
+	hlt

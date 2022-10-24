@@ -1,5 +1,5 @@
 #include "print.h"
-// bişey yaz artık efjıoı3; yO
+
 const static size_t num_cols = 80;
 const static size_t num_rows = 25;
 
@@ -69,7 +69,6 @@ void print_char(char character) {
 	col++;
 }
 
-//bi an daldım lan fsdıgojsd;
 void print_str(char* str) {
 	for (size_t i = 0; 1; i++) {
 		char character = (uint8_t) str[i];
@@ -77,7 +76,6 @@ void print_str(char* str) {
 		if (character == '\0') {
 			return;
 		}
-		//1 dk gelcem fontları değişip; ok; yaptım yay >=> (dm den atıcam görüntüyü)
 		print_char(character);
 	}
 }
