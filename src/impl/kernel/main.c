@@ -2,6 +2,8 @@
 #include "input.h"
 #include "sleep.h"
 #include "string.h"
+#define cmpin(in, comp) \
+	(strlen(in) == strlen(comp) && memcmp(in,comp,strlen(in)) == 0)
 
 void kernel_main() { // prinf bruh
 	//char* GSOD = "Your Computer has been got crashed while trying to make a Action."; // gri ekran ölümü; yo o green ekran ölümü ; ok
@@ -23,8 +25,14 @@ void kernel_main() { // prinf bruh
 
 
 	while (1) {
-		print_str(">");
-		print_str(input());
+		char* inputed_variable = input(">");
+		if (cmpin(inputed_variable,"echo hi")) {
+			print_str("Hi");
+		} else if (cmpin(inputed_variable,"cat")) {
+			print_str("meow ~w~");
+		} else {
+			print_str(inputed_variable);
+		}
 		print_str("\n");
 	}
 

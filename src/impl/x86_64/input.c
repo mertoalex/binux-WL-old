@@ -2,6 +2,9 @@
 #include "print.h"
 #include "sleep.h"
 #include "string.h"
+char empty[256];
+
+#define DFT(value)
 
 static inline uint8_t _inb(uint16_t port) {
 	uint8_t ret;
@@ -236,23 +239,25 @@ char* input_character(void) {
 	}
 }
 
-char* input() { // !TODO: char* string for printing question like python
+char* input(char* output DFT('')) {
 	static int line = 0;
 	static char result[256];
 	static char* alinan;
 	memset(result,0,256);
+	print_str(output);
 	while (1) {
 		alinan = input_character();
 
-		if (alinan == "0x1C") {
+		if (alinan == "0x1C") { //enter
 			line = 0;
 			alinan = NULL;
 			return result;
 		}
 		
-		if (alinan == "0x0E") {
-			if (!strlen(result) <= (size_t) 0) {
+		if (alinan == "0x0E") { //backspace
+			if (!memcmp(result,empty,256) == 0) {
 				result[strlen(result)] = '\0';
+				print_str((char*) strlen(result));
 				line--;
 				clear(1);
 			}
