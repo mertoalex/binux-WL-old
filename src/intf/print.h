@@ -25,4 +25,4 @@ void print_clear();
 void print_char(char character);
 void print_str(char* string);
 void print_set_color(uint8_t yazi, uint8_t arka);
-void clear(size_t chars);
+void clear(size_t start,size_t end);

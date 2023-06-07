@@ -84,13 +84,14 @@ void print_set_color(uint8_t yazi, uint8_t arka) {
 	color = yazi + (arka << 4);
 }
 
-void clear(size_t chars) {
+void clear(size_t start,size_t end) {
+	if (start > end) {size_t a = start, start = end, end = a; a = 0;}
 	struct Char empty = (struct Char) {
 		character: ' ',
 		color: color,
 	};
 
-	for (size_t i = 0; i == chars; i++) {
-		buffer[col + num_cols * row] = empty;
+	for (size_t deleting = start; deleting < end && deleting < num_cols; col++) {
+		buffer[deleting + num_cols * row] = empty;
 	}
 }
